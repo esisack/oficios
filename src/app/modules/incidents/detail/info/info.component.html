@@ -1,0 +1,55 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            Datos de la incidencia Nro {{ incidence.id }}
+        </mat-card-title>
+    </mat-card-header>
+    <br>
+    <mat-divider></mat-divider>
+    <br>
+    <mat-card-content>
+        <div class="container" fxLayout="column" fxLayoutAlign="center" fxLayoutGap="10px">
+            <div fxLayout="row" fxFlex="100%" fxLayoutAlign="center">
+                <div fxLayout="column" fxFlex="33%" fxLayoutAlign="center center">
+                    <br>
+                    <h4>Nro</h4>
+                    <h3>{{ incidence.id }}</h3>
+                    <br>
+                    <h4>Fecha</h4>
+                    <h3>{{ incidence.creationDate }}</h3>
+                    <br>
+                </div>
+                <div fxLayout="column" fxFlex="67%" fxLayoutAlign="center">
+                    <br>
+                    <h4>Descripcion</h4>
+                    <h3>{{ incidence.description }}</h3>
+                    <br>
+                    <h4>Calle</h4>
+                    <h3>{{ incidence.street.name }} Nro {{ incidence.addressNumber }}</h3>
+                    <br>
+                </div>
+            </div>
+            <div fxLayout="row" fxFlex="100%" fxLayoutAlign="center">
+                <div fxLayout="column" fxFlex="33%" fxLayoutAlign="center center">
+                    <br>
+                    <h4>Area</h4>
+                    <h3>{{ incidence.area.description }}</h3>
+                    <br>
+                </div>
+                <div fxLayout="column" fxFlex="33%" fxLayoutAlign="center center">
+                    <br>
+                    <h4>Origen</h4>
+                    <h3>{{ incidence.source.description }}</h3>
+                    <br>
+                </div>
+                <div fxLayout="column" fxFlex="33%" fxLayoutAlign="center center">
+                    <br>
+                    <h4>Tipo</h4>
+                    <h3>{{ incidence.area.description }}</h3>
+                    <br>
+
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

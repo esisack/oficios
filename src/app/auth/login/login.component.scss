@@ -1,0 +1,24 @@
+mat-card {
+    max-width: 500px;
+    padding: 90px;
+    margin: auto;
+    text-align: center;
+    top: 50%;
+  }
+  
+  mat-form-field {
+    display: block;
+  }
+
+  form {
+    padding: 120px;
+  }
+  
+  .image{
+    height: 40em; 
+    background-size: cover; 
+    width: auto;
+    height: 100%;
+    background-image: url('/assets/ba-fdd.jpg');
+    background-position: 50% 50%;
+  }

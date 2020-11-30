@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'sigep-oficios'`, () => {
+  it(`should have as title 'dynamic'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('sigep-oficios');
+    expect(app.title).toEqual('dynamic');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('sigep-oficios app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('dynamic app is running!');
   });
 });

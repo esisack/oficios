@@ -1,0 +1,13 @@
+<div class="container">
+    <app-search 
+        [search]="search" 
+        (eventChange)="onChange($event)">
+    </app-search>
+</div>
+<br>
+<div class="container">
+    <app-list 
+        [search]="search" 
+        [event]="event">
+    </app-list>
+</div>

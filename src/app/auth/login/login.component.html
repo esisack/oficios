@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+    <span>Dinamica</span>
+</mat-toolbar>
+<div class="image">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-card>
+      <mat-card-content>
+          <h2>Log In</h2>
+          <mat-error *ngIf="loginInvalid">
+            The username and password were not recognised
+          </mat-error>
+          <mat-form-field class="full-width-input">
+            <input matInput placeholder="Email" formControlName="username" required>
+            <mat-error>
+              Please provide a valid email address
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="full-width-input">
+            <input matInput type="password" placeholder="Password" formControlName="password" required>
+            <mat-error>
+              Please provide a valid password
+            </mat-error>
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button mat-raised-button color="primary" routerLinkActive="list-item-active" routerLink="/" fxFlex="35">Login</button>
+          <button mat-raised-button color="primary" fxFlex="35">Registrarse</button>  
+        </mat-card-actions>
+      </mat-card>
+    </form>
+</div>
+
+  

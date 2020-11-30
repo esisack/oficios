@@ -1,0 +1,60 @@
+.mat-form-field {
+    margin: auto;
+    width: 80%;
+}
+table {
+    margin: auto;
+    width: 98%; 
+}
+
+.example-form {
+    min-width: 700px;
+    width: 100%;
+  
+  }
+  
+  h3 {
+    font-variant: small-caps;
+    font-weight: 700;
+  }
+  
+  .example-full-width {
+    width: 80%;
+    font-size: 36px;
+    font-weight: 600;
+  }
+  
+  .form {
+    min-width: 500px;
+    width: 100%;
+  }
+  
+  .full-width {
+    width: 80%;
+  }
+  .example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .example-right-align {
+    text-align: right;
+  }
+  
+  .example-center-align {
+    text-align: center;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  }
+  
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
