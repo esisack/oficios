@@ -1,55 +1,66 @@
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>
-            Datos de la incidencia Nro {{ incidence.id }}
-        </mat-card-title>
-    </mat-card-header>
-    <br>
-    <mat-divider></mat-divider>
-    <br>
-    <mat-card-content>
-        <div class="container" fxLayout="column" fxLayoutAlign="center" fxLayoutGap="10px">
-            <div fxLayout="row" fxFlex="100%" fxLayoutAlign="center">
-                <div fxLayout="column" fxFlex="33%" fxLayoutAlign="center center">
-                    <br>
-                    <h4>Nro</h4>
-                    <h3>{{ incidence.id }}</h3>
-                    <br>
-                    <h4>Fecha</h4>
-                    <h3>{{ incidence.creationDate }}</h3>
-                    <br>
-                </div>
-                <div fxLayout="column" fxFlex="67%" fxLayoutAlign="center">
-                    <br>
-                    <h4>Descripcion</h4>
-                    <h3>{{ incidence.description }}</h3>
-                    <br>
-                    <h4>Calle</h4>
-                    <h3>{{ incidence.street.name }} Nro {{ incidence.addressNumber }}</h3>
-                    <br>
-                </div>
-            </div>
-            <div fxLayout="row" fxFlex="100%" fxLayoutAlign="center">
-                <div fxLayout="column" fxFlex="33%" fxLayoutAlign="center center">
-                    <br>
-                    <h4>Area</h4>
-                    <h3>{{ incidence.area.description }}</h3>
-                    <br>
-                </div>
-                <div fxLayout="column" fxFlex="33%" fxLayoutAlign="center center">
-                    <br>
-                    <h4>Origen</h4>
-                    <h3>{{ incidence.source.description }}</h3>
-                    <br>
-                </div>
-                <div fxLayout="column" fxFlex="33%" fxLayoutAlign="center center">
-                    <br>
-                    <h4>Tipo</h4>
-                    <h3>{{ incidence.area.description }}</h3>
-                    <br>
-
-                </div>
-            </div>
+<div fxLayout="row" fxLayoutAlign="none" style="background-color: white;">
+    <div fxFlex="70">
+        <app-images></app-images>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start" fxFlex="30" style="padding: 12px;">
+        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
+            <h3 fxFlex="60" style="font-weight: 600;">{{ incidence.street.name }}</h3>
+            <h3 fxFlex="40" style="font-weight: 600;">{{ incidence.addressNumber }}</h3>
         </div>
-    </mat-card-content>
-</mat-card>
+        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
+            <h3 fxFlex="35">Nro de Oficio</h3>
+            <h3 fxGlex="65">{{ incidence.id }}</h3>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
+            <h3 fxFlex="35">Fecha</h3>
+            <h3 fxGlex="65">{{ incidence.creationDate }}</h3>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
+            <h3 fxFlex="35">Area</h3>
+            <h3 fxGlex="65">{{ incidence.area.description }}</h3>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
+            <h3 fxFlex="35">Tipo incidencia</h3>
+            <h3 fxGlex="65">{{ incidence.source.description }}</h3>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
+            <h3 fxFlex="35">Sub-Tipo</h3>
+            <h3 fxGlex="65">{{ incidence.source.description }}</h3>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
+            <h3 fxFlex="35">Estado asociado</h3>
+            <h3 fxGlex="65">{{ incidence.source.description }}</h3>
+        </div>
+        <br>
+        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
+            <h3 fxFlex="35">Descripcion</h3>
+            <h3 fxGlex="65">{{ incidence.description }}</h3>
+        </div>
+        <br>
+        <div fxLayout="column" fxLayoutAlign="end none" fxLayoutGap="15">
+            <ng-container *ngIf="incidence.id == 585">
+                <button mat-raised-button style="background-color: red; color: white;"
+                    fxFlex="70" (click)="onDenied()">
+                    Denegar oficio
+                    <mat-icon>block</mat-icon>
+                </button>
+            </ng-container>
+
+            <ng-container *ngIf="incidence.id == 585">
+                <button mat-raised-button (click)="openDialog()" style="background-color: green; color: white;"
+                    fxFlex="70">
+                    Derivar oficio
+                    <mat-icon>send</mat-icon>
+                </button>
+            </ng-container>
+
+            <ng-container *ngIf="incidence.id == 585">
+                <button mat-raised-button [routerLink]="'/control-grid'" style="background-color: orange; color: white;"
+                    fxFlex="70">
+                    Cruzar informacion
+                    <mat-icon>sync</mat-icon>
+                </button>
+            </ng-container>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http'
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -8,12 +9,12 @@ import { HttpClient } from '@angular/common/http'
 })
 export class ImageService {
  
-  baseUrl = 'http://localhost:8081/s3/download?fileName=images/ba-fdd.jpg'
+  baseUrl = environment.imageUrl
  
   constructor(private httpClient: HttpClient) { }
 
   getImage(imageUrl: string): Observable<Blob> {
-    return this.httpClient.get(this.baseUrl, { responseType: 'blob' });
+    return this.httpClient.get(`${this.baseUrl}${imageUrl}`, { responseType: 'blob' });
   }
 
 }

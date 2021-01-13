@@ -1,9 +1,27 @@
-<mat-card>
-    <google-map width="100%" height="700" [center]="centroide">
-        <map-marker
-            [position]="position">
+<div fxLayout="row" fxLayoutAlign="none" style="background-color: white;"> 
+    <div fxFlex="70" > 
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [mapTypeId]="mapTypeId">
 
-        </map-marker>
-
-    </google-map>     
- </mat-card>
+            <agm-marker [latitude]="lat"  [longitude]="lng" [agmFitBounds]="true">
+              <agm-info-window>
+                <h3>Estoy en el mapa</h3>
+              </agm-info-window>    
+             </agm-marker>
+          </agm-map>
+          <button (click)='getCurrentPosition()'>GET CURRENT POSITION</button>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start" fxFlex="30" style="padding: 12px;"> 
+        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15"> 
+            <h3 fxFlex="60" style="font-weight: 600;">{{ incidence.street.name }}</h3>
+            <h3 fxFlex="40" style="font-weight: 600;">{{ incidence.addressNumber }}</h3>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15"> 
+            <h3 fxFlex="40">Estado</h3>
+            <h3 fxFlex="60">{{ incidence.addressNumber }}</h3>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start"  fxLayoutGap="15"> 
+            <h3 fxFlex="40">Chapas validas</h3>
+            <h3 fxFlex="60">{{ incidence.addressNumber }}</h3>
+        </div>
+    </div>
+</div>

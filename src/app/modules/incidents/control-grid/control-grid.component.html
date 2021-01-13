@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Cruce de informacion</h1>
+  <mat-grid-list cols="5" gutterSize="10" rowHeight="400px">
+    <mat-grid-tile *ngFor="let incidence of incidents.slice(0,10)">
+      <mat-card>
+        <mat-card-content>
+         
+            <p class="title">Nro de Oficio</p>
+            <p>{{ incidence.id }}</p>
+            <p class="title">Fecha</p>
+            <p>{{ incidence.creationDate | date }}</p>
+            <p>{{ incidence.street.name }} {{ incidence.addressNumber }}</p>
+            <p class="title">Estado</p>
+            <p>{{ incidence.source.description }}</p>
+            <p class="title">Grupo planificador</p>
+            <p>{{ incidence.source.description }}</p>
+            <p class="title">Descripcion</p>
+            <p>{{ incidence.description }}</p>
+     
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-button color="primary" (click)="onSelect(incidence.id)">ver mas..</button>
+        </mat-card-actions>
+      </mat-card>
+  
+    </mat-grid-tile>
+  
+  </mat-grid-list>
+  <br>
+  <mat-card>
+    <mat-card-actions align="end">
+      <button mat-button color="primary"> Proxumos 10 >></button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>

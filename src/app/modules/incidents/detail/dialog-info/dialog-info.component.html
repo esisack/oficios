@@ -1,0 +1,49 @@
+<div>
+    <div class="content-container">
+
+        <h1 mat-dialog-title>Derivar oficio</h1>
+        <div mat-dialog-content style="text-align: center;">
+
+            <mat-form-field>
+                <mat-label>Area</mat-label>
+                <mat-select (selectionChange)="onSelectArea($event.value)">
+                    <mat-option> Seleccione area</mat-option>
+                    <mat-option *ngFor="let area of areas" [value]="area.id">
+                        {{ area.description }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Origen</mat-label>
+                <mat-select (selectionChange)="onSelectSource($event.value)">
+                    <mat-option> Seleccione origen</mat-option>
+                    <mat-option *ngFor="let source of sources" [value]="source.id">
+                        {{ source.description }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Tipo</mat-label>
+                <mat-select (selectionChange)="onSelectType($event.value)">
+                    <mat-option> Seleccione tipo</mat-option>
+                    <mat-option *ngFor="let type of types" [value]="type.id">
+                        {{ type.description }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Descripcion</mat-label>
+                <input matInput maxlength="1000">
+            </mat-form-field>
+
+            <br>
+            <br>
+        </div>
+    </div>
+
+    <button mat-flat-button class="no-button" mat-dialog-close (click)="close()">Cancelar</button>
+    <button mat-flat-button class="yes-button" mat-dialog-close (click)="close()">Continuar</button>
+</div>

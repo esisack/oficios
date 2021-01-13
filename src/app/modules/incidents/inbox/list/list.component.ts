@@ -1,5 +1,6 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { EmailValidator } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
@@ -17,18 +18,19 @@ export class ListComponent implements OnInit {
   @Input() option: string;
   @Output() valueResponse: EventEmitter<string> = new EventEmitter();
   @Input() search: string;
-  @Output() refreshEvent: EventEmitter<string> = new EventEmitter();
+  @Output() searchChamge: EventEmitter<string> = new EventEmitter()
 
   @Input()
   set event(event: Event) {
     if (event) {
+      console.log(this.search)
       this.refresh('hola');
     }
   }
 
   incidence: Incidence;
   incidents: Incidence[] = [];
-  displayedColumns: string[] = ['id', 'description', 'street', 'addressNumber', 'actions'];
+  displayedColumns: string[] = ['id', 'source', 'street', 'addressNumber', 'actions'];
   dataSource = new MatTableDataSource(this.incidents);
   total: number;
 
@@ -71,12 +73,7 @@ export class ListComponent implements OnInit {
   }
 
   refresh(event) {
-    console.log('ahora estoy en refresh')
-    this.refreshIncidents( '?source.id=2280');
-  }
-  
-  eventFromChild(data) {
-    console.log('ahora estoy en refresh')
-    this.refreshIncidents( '?source.id=2382');
-  }
+    console.log(this.search)
+    this.refreshIncidents( this.search);
+  } 
 }

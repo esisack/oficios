@@ -1,0 +1,18 @@
+
+<div class="container">
+    <h1>Home</h1>
+    <h3>Actividades Pendientes</h3>
+    <mat-list>
+        <mat-list-item *ngFor="let incidence of incidents.slice(0,5);">
+            <mat-icon mat-list-icon>folder</mat-icon>
+            <h3 matLine> Pendiente de Ruteo </h3>
+            <p matLine>
+                <span>{{ incidence.id }}</span>
+                <span> -- {{ incidence.street.name }} {{ incidence.addressNumber}}</span>
+            </p>
+            <button mat-icon-button color="warn"> <mat-icon mat-list-icon>map</mat-icon></button>
+            <button mat-icon-button color="primary"> <mat-icon mat-list-icon>open_in_new</mat-icon></button>
+            <mat-divider></mat-divider>
+        </mat-list-item>
+    </mat-list>
+</div>

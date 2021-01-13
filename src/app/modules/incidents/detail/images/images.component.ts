@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatCarousel, MatCarouselComponent } from '@ngmodule/material-carousel';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ImageService } from "src/app/services/image.service";
+import { Incidence } from 'src/app/model/incidence';
+import { Image } from "src/app/model/image";
 
 @Component({
   selector: 'app-images',
@@ -10,49 +12,47 @@ import { ImageService } from "src/app/services/image.service";
 })
 export class ImagesComponent implements OnInit {
 
-  slides = [
-    {'image': 'https://gsr.dev/material2-carousel/assets/demo.png'}, 
-    {'image': 'https://gsr.dev/material2-carousel/assets/demo.png'}, 
-    {'image': 'https://gsr.dev/material2-carousel/assets/demo.png'}, 
-    {'image': 'https://gsr.dev/material2-carousel/assets/demo.png'}
-  ];
+  @Input() inncidence: Incidence
 
-  imgUrl: string ="";
+  imgUrl: string = "images/ba-fdd.jpg";
   currVerifiedLoanOfficerPhoto: any;
   imageToShow: any;
   isImageLoading: boolean;
-  
-  constructor(private service: ImageService,
+
+  constructor(
+    private service: ImageService,
     private sanitizer: DomSanitizer
-    ) { }
+  ) { }
 
   ngOnInit(): void {
+  //  this.imgUrl = this.inncidence.images[0].id + '.jpg'
+    console.log(this.imgUrl)
     this.getImageFromService()
   }
 
-  transform(item: any){
+  transform(item: any) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(item);
-}
+  }
 
   createImageFromBlob(image: Blob) {
-   let reader = new FileReader();
-   reader.addEventListener("load", () => {
+    let reader = new FileReader();
+    reader.addEventListener("load", () => {
       this.imageToShow = this.transform(reader.result);
-   }, false);
+    }, false);
 
-   if (image) {
+    if (image) {
       reader.readAsDataURL(image);
-   }
+    }
   }
 
   getImageFromService() {
-      this.isImageLoading = true;
-      this.service.getImage(this.imgUrl).subscribe(data => {
-        this.createImageFromBlob(data);
-        this.isImageLoading = false;
-      }, error => {
-        this.isImageLoading = false;
-        console.log(error);
-      });
+    this.isImageLoading = true;
+    this.service.getImage(this.imgUrl).subscribe(data => {
+      this.createImageFromBlob(data);
+      this.isImageLoading = false;
+    }, error => {
+      this.isImageLoading = false;
+      console.log(error);
+    });
   }
 }

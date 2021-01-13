@@ -1,31 +1,22 @@
-<mat-toolbar color="primary">
+<mat-toolbar>
     <mat-toolbar-row>
-        <button mat-icon-button (click)="toggleSideBar()">
-          <mat-icon>menu</mat-icon>
+        <span class="example-spacer"></span>
+        <button mat-mini-fab [matMenuTriggerFor]="menu" style="margin-right:20px" color="primary">
+            <mat-icon>notifications</mat-icon>
         </button>
-
-        <span>MEPHU</span>
-        <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
-            <ul fxLayout="row" fxLayoutGap="20px">
-                <li>
-                    <button mat-button [matMenuTriggerFor]="menu">
-                        <mat-icon>notifications</mat-icon>
-                    </button>
-                    <mat-menu #menu="matMenu">
-                    <button mat-menu-item>
-                        Notificacion 1
-                    </button>
-                    <button mat-menu-item>
-                        Notificacion 2
-                    </button>
-                    <button mat-menu-item>
-                        Notificacion 3
-                    </button>
-                    </mat-menu>
-                </li>
-            </ul>
-
-        </div>
-    </mat-toolbar-row>
+        
+        <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+            Notificacion 1
+        </button>
+        <button mat-menu-item>
+            Notificacion 2
+        </button>
+        <button mat-menu-item>
+            Notificacion 3
+        </button>
+        </mat-menu>
+        <app-avatar-photo></app-avatar-photo>
+</mat-toolbar-row>
 
 </mat-toolbar>

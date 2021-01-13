@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Incidence } from 'src/app/model/incidence';
+import { IncidenceService } from 'src/app/services/incidence.service';
 
 
 @Component({
@@ -8,9 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailComponent implements OnInit {
 
-  constructor() { }
+  incidence: Incidence = null
 
-  ngOnInit(): void {
+  constructor(
+    private route: ActivatedRoute,
+    private service: IncidenceService
+  ) {
+    let id = this.route.snapshot.params['id'];
+    this.getIncidence(id)
   }
 
+  ngOnInit() {
+
+  }
+
+  getIncidence(id: number) {
+    this.service.getIncidence(id)
+      .subscribe(data => {
+        this.incidence = data;
+        console.log(data)
+      }, error => console.log(error));
+  }
 }

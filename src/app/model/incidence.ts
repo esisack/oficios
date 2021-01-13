@@ -1,4 +1,5 @@
 import { CategoryValue } from "./category-value";
+import { Image } from './image';
 import { WorkUnit } from "./work-unit";
 
 export class Incidence extends WorkUnit {
@@ -6,4 +7,5 @@ export class Incidence extends WorkUnit {
     source: CategoryValue
     area: CategoryValue
     description: string
+    images: Image[]
 }

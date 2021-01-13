@@ -1,0 +1,29 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: rgb(36, 136, 170);
+}
+
+p{
+  font-size: 12px;
+  font-variant: small-caps;
+  margin: 0 0 8px;
+}
+
+.title {
+  font-weight: 500;
+}
+
+mat-grid-list {
+    background: whitesmoke;
+}
+mat-card {
+  width: 96%;
+  height: 95%;
+}

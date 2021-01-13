@@ -1,16 +1,11 @@
+<h1>Busquedas</h1>
 <form [formGroup]="casesForm" (ngSubmit)="onSubmit()" class="example-form" style="text-align: center;">
+
     <mat-card>
-        <mat-card-header>
-            <mat-card-title>
-                Parametros de busqueda
-            </mat-card-title>
-        </mat-card-header>
-        <br>
-        <mat-divider></mat-divider>
-        <br>
         <mat-card-content>
+            <br>
             <div fxLayout="row" fxLayoutAlign="space-around center">
-                <mat-form-field appearance="fill" fxFlex="30">
+                <mat-form-field  fxFlex="30">
                     <mat-label>Area</mat-label>
                     <mat-select  (selectionChange)="onSelectArea($event.value)">
                         <mat-option> Seleccione area</mat-option>
@@ -20,7 +15,7 @@
                     </mat-select>
                 </mat-form-field>
 
-                <mat-form-field appearance="fill" fxFlex="30">
+                <mat-form-field fxFlex="30">
                     <mat-label>Origen</mat-label>
                     <mat-select (selectionChange)="onSelectSource($event.value)">
                         <mat-option> Seleccione origen</mat-option>
@@ -30,9 +25,9 @@
                     </mat-select>
                 </mat-form-field>
 
-                <mat-form-field appearance="fill" fxFlex="30">
+                <mat-form-field  fxFlex="30">
                     <mat-label>Tipo</mat-label>
-                    <mat-select>
+                    <mat-select (selectionChange)="onSelectType($event.value)">
                         <mat-option> Seleccione tipo</mat-option>
                         <mat-option *ngFor="let type of types" [value]="type.id">
                             {{ type.description }}
@@ -42,9 +37,9 @@
             </div>
             <div fxLayout="row" fxLayoutAlign="space-around center">
                 
-                <mat-form-field appearance="fill" fxFlex="30">
+                <mat-form-field fxFlex="30">
                     <mat-label>Calle</mat-label>
-                    <mat-select >
+                    <mat-select (selectionChange)="onSelectStreet($event.value)">
                         <mat-option> Seleccione calle</mat-option>
                         <mat-option *ngFor="let street of streets" [value]="street.id">
                             {{ street.name }}
@@ -52,12 +47,12 @@
                     </mat-select>
                 </mat-form-field>
 
-                <mat-form-field appearance="fill" fxFlex="30">
+                <mat-form-field fxFlex="30">
                     <mat-label>Altura</mat-label>
                     <input matInput maxlength="6" placeholder="Ex. 94105" #data>
                 </mat-form-field>
 
-                <mat-form-field appearance="fill" fxFlex="30">
+                <mat-form-field fxFlex="30">
                     <mat-label>Comuna</mat-label>
                     <mat-select >
                         <mat-option> Seleccione tipo</mat-option>
@@ -69,9 +64,9 @@
             </div>
             <div fxLayout="row" fxLayoutAlign="space-around center">
 
-                <mat-form-field appearance="fill" fxFlex="30">
+                <mat-form-field fxFlex="30">
                     <mat-label>Inspector</mat-label>
-                    <mat-select>
+                    <mat-select (selectionChange)="onSelectUser($event.value)">
                         <mat-option> Seleccione Inspector</mat-option>
                         <mat-option *ngFor="let user of users" [value]="user.id">
                             {{ user.name }}
@@ -79,14 +74,14 @@
                     </mat-select>
                 </mat-form-field>
 
-                <mat-form-field appearance="fill" fxFlex="30">
+                <mat-form-field fxFlex="30">
                     <mat-label>Fecha Creacion</mat-label>
                     <input matInput [matDatepicker]="picker">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
                 </mat-form-field>
 
-                <mat-form-field appearance="fill" fxFlex="30">
+                <mat-form-field fxFlex="30">
                     <mat-label>Fecha Modificacion</mat-label>
                     <input matInput [matDatepicker]="picker1">
                     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -97,8 +92,14 @@
         <mat-divider></mat-divider>
         <mat-card-actions align="end">
             <br>
-            <button mat-stroked-button color="primary" fxFlex="30">Limpiar</button>
-            <button mat-raised-button color="primary" fxFlex="30" (click)="onClick($event)">Filtrar</button>
+            <button mat-stroked-button color="primary" fxFlex="20">
+                <span> Limpiar  </span>
+                <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-raised-button color="primary" fxFlex="20" (click)="onClick($event)">
+                <span> Filtrar   </span>
+                <mat-icon>filter_alt</mat-icon>
+            </button>
         </mat-card-actions>
     </mat-card>
 </form>

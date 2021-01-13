@@ -6,6 +6,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
+import { AvatarPhotoComponent } from './components/avatar-photo/avatar-photo.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 
 
@@ -13,7 +15,9 @@ import { RouterModule } from '@angular/router';
   declarations: [
     HeaderComponent, 
     FooterComponent, 
-    SidebarComponent
+    SidebarComponent, 
+    AvatarPhotoComponent, 
+    ConfirmDialogComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +27,9 @@ import { RouterModule } from '@angular/router';
   exports: [
     HeaderComponent, 
     FooterComponent, 
-    SidebarComponent
+    SidebarComponent,
+    AvatarPhotoComponent,
+    ConfirmDialogComponent
   ]
 })
 export class SharedModule { }

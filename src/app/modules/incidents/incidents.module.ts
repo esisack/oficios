@@ -7,23 +7,31 @@ import { DetailComponent } from "./detail/detail.component";
 import { InfoComponent } from './detail/info/info.component';
 import { ImagesComponent } from './detail/images/images.component';
 import { MapComponent } from './detail/map/map.component';
-import { ProccessComponent } from './detail/proccess/proccess.component';
+
 import { MaterialModule } from 'src/app/material/material.module';
 import { RouterModule } from '@angular/router';
 import { GoogleMapsModule } from "@angular/google-maps";
-import { Detail2Component } from './detail2/detail2.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ControlComponent } from './control/control.component';
+import { AgmCoreModule } from '@agm/core';
+import { ControlGridComponent } from './control-grid/control-grid.component';
+import { DialogInfoComponent } from './detail/dialog-info/dialog-info.component';
+
+
 @NgModule({
   declarations: [
-    InboxComponent, 
-    ListComponent, 
+    InboxComponent,
+    ListComponent,
     SearchComponent,
     DetailComponent,
     InfoComponent,
     ImagesComponent,
     MapComponent,
-    ProccessComponent,
-    Detail2Component
+    ControlComponent,
+    ControlGridComponent,
+    DialogInfoComponent,
+
+
   ],
   imports: [
     CommonModule,
@@ -31,7 +39,10 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     RouterModule,
     GoogleMapsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyA0VCSHoqA8zAK-cCuj7DJt2uIxp6X2jr8'
+    }),
   ]
 })
 export class IncidentsModule { }

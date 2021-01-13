@@ -11,5 +11,7 @@ export class WorkUnit {
     creater: User
     creationDate: Date
     lastModifiedDate: Date
+    lat: number;
+    lng: number;
     associatedDocuments: Document[]   
 }

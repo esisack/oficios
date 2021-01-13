@@ -11,6 +11,8 @@ export class DefaultComponent implements OnInit {
 
   userid: number;
   sideBarOpen = true;
+  photoUrl: string;
+  name: string;
 
   constructor(private router: Router,
       private authService: AuthService) { }

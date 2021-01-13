@@ -21,14 +21,8 @@ import { User } from 'src/app/model/user';
 export class SearchComponent implements OnInit {
 
   @Input() search: string
-  @Output() valueResponse = new EventEmitter<string>();
-  @Output() querydata = new EventEmitter<string>();
-  
+  @Output() searchChange = new EventEmitter<string>(); 
   @Output() eventChange = new EventEmitter<Event>();
-
-  onClick(event: Event) {
-    this.eventChange.emit(event);
-  }
 
   panelOpenState = false;
   streetControl: FormControl;
@@ -40,11 +34,11 @@ export class SearchComponent implements OnInit {
   users: User[]
   filteredStreets: Observable<Street[]>;
 
-  selectedArea: number;
-  selectedOrigin: number;
-  selectedType: number;
-  selectedStreet: number;
-  selectedUser: number;
+  selectedArea: string;
+  selectedSource: string;
+  selectedType: string;
+  selectedStreet: string;
+  selectedUser: string;
 
   constructor(
     private service: CategoryValueService, 
@@ -59,15 +53,32 @@ export class SearchComponent implements OnInit {
   }
 
   onSelectArea(id: number) {
-    console.log("este es el id"+id)
+    console.log('entro a area')
+    this.selectedArea = `area.id=${id}`
+    console.log(this.selectedArea) 
     return  this.getValuesBySource("OrigenIncidencia", id);
   }
 
   onSelectSource(id: number) {
-    console.log("este es el id"+id)
+    this.selectedSource = `source.id=${id}` 
+    return  this.getValuesByType("TipoIncidencia", id);
+  }
+ 
+
+  onSelectType(id: number) {
+    this.selectedType = `type.id=${id}` 
     return  this.getValuesByType("TipoIncidencia", id);
   }
 
+  onSelectUser(id: number) {
+    this.selectedStreet = `street.id=${id}` 
+    return  this.getValuesByType("TipoIncidencia", id);
+  }
+
+  onSelectStreet(id: number) {
+    this.selectedStreet = `street.id=${id}` 
+    return  this.getValuesByType("TipoIncidencia", id);
+  }
   getValuesByCategory(category: string) {
     this.service.getValuesByCategory(category).subscribe(data => {
         this.areas = data
@@ -112,6 +123,15 @@ export class SearchComponent implements OnInit {
 
   onSubmit() {
     
+  }
+  onClick(event: Event) {
+    console.log(this.selectedArea)
+    if (this.selectedArea) {
+      this.search = '?' + this.selectedArea
+      console.log(this.search)
+      this.searchChange.emit(this.search)
+    }
+    this.eventChange.emit(event);
   }
 
 }
