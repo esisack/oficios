@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import url(../node_modules/font-awesome/css/font-awesome.css);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -50,3 +51,51 @@ border-radius: 0px;
     text-align: center;
     font-size: 20px;
 }
+
+.light-button {
+   background: #00B9F1;
+    color: white;
+   border: #00B9F1 1px solid;
+}
+
+.white-button {
+    background: white;
+    color: #00B9F1;
+   border: #00B9F1 1px solid;
+}
+
+.orange-button {
+    background: #F39C12;
+     color: white;
+    border: #F39C12 1px solid;
+    border-radius: 10px;
+ }
+ 
+ .green-button {
+    background:  #72AF2B;
+     color: white;
+    border: #72AF2B 1px solid;
+    border-radius: 10px;
+ }
+
+
+ .red-button {
+    background: #BF326F;
+     color:  white;
+    border:  #BF326F 1px solid;
+    border-radius: 10px;
+ }
+
+ .card-elevation {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+ }
+
+ .list-item-active {
+    background: #00B9F1;
+ }
+
+ mat-card {
+    border-radius: 10px;
+ }

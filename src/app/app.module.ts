@@ -13,6 +13,7 @@ import { ModulesModule } from "./modules/modules.module";
 import { SharedModule } from "./shared/shared.module";
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     LayoutsModule,
     ModulesModule,
     SharedModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    NgxGalleryModule
   ],
   exports: [
     AuthModule,

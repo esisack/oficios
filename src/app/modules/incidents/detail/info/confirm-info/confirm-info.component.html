@@ -1,0 +1,27 @@
+<div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
+    <h3 fxFlex="60" style="font-weight: 600;">{{ incidence.street.name }}</h3>
+    <h3 fxFlex="40" style="font-weight: 600;">{{ incidence.addressNumber }}</h3>
+</div>
+<div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15" style="font-weight: 600; color: rgb(36, 136, 170);">
+    <ng-container *ngIf="incidence.id == 289637">
+        <h3 fxFlex="65">En Validacion</h3>
+    </ng-container>
+    <ng-container *ngIf="incidence.id == 291278">
+        <h3 fxFlex="65">En Analisis</h3>
+    </ng-container>
+</div>
+
+    <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="15" style="height: 80px;">
+        <button mat-raised-button class="red-button" outerLinkActive="list-item-active">
+            Denegar oficio 
+        </button>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="15" style="height: 150px; padding: 25px;">
+        <button mat-raised-button  class="white-button" (click)="onConfirm(false)" outerLinkActive="list-item-active" routerLink="/">
+            Cancelar
+        </button>
+        <button mat-raised-button class="light-button" (click)="onConfirm(true)" outerLinkActive="list-item-active" routerLink="/">
+            Continuar
+        </button> 
+    </div>   
+{{ object }} , {{ tareaId}},  {{ key }}

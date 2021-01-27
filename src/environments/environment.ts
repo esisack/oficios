@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:8082//incidences',
+  baseUrl: 'http://localhost:8082/incidences',
   imageUrl: 'http://localhost:8081/s3/download?fileName='
 };
 

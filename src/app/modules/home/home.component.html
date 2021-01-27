@@ -1,18 +1,16 @@
-
 <div class="container">
-    <h1>Home</h1>
+
     <h3>Actividades Pendientes</h3>
-    <mat-list>
-        <mat-list-item *ngFor="let incidence of incidents.slice(0,5);">
-            <mat-icon mat-list-icon>folder</mat-icon>
-            <h3 matLine> Pendiente de Ruteo </h3>
-            <p matLine>
-                <span>{{ incidence.id }}</span>
-                <span> -- {{ incidence.street.name }} {{ incidence.addressNumber}}</span>
-            </p>
-            <button mat-icon-button color="warn"> <mat-icon mat-list-icon>map</mat-icon></button>
-            <button mat-icon-button color="primary"> <mat-icon mat-list-icon>open_in_new</mat-icon></button>
-            <mat-divider></mat-divider>
-        </mat-list-item>
-    </mat-list>
+    <mat-card *ngFor="let bt of businessTasks.slice(0,10);" style="padding: 25px; margin-bottom: 20px;height: 70px;" class="mat-elevation-z8" >
+
+        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15" style="font-weight: 600;">
+            <h3 fxFlex="30"> {{ bt.id }} - {{ bt.name }} </h3>
+            <h3 fxFlex="50"> -- Estado -- {{ bt.status}} </h3>
+
+            <button mat-icon-button class="white-button" aria-label="Example icon button with a home icon" (click)="onSelect(bt)" >
+                <mat-icon>open_in_new</mat-icon>
+            </button>
+        </div>
+
+    </mat-card>
 </div>

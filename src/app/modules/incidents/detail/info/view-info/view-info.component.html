@@ -1,0 +1,88 @@
+<div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
+    <h3 fxFlex="60" style="font-weight: 600;">{{ incidence.street.name }}</h3>
+    <h3 fxFlex="40" style="font-weight: 600;">{{ incidence.addressNumber }}</h3>
+</div>
+<div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15" style="font-weight: 600; color: rgb(36, 136, 170);">
+    <ng-container *ngIf="incidence.id == 289637">
+        <h3 fxFlex="65">En Validacion</h3>
+    </ng-container>
+    <ng-container *ngIf="incidence.id == 291278">
+        <h3 fxFlex="65">En Analisis</h3>
+    </ng-container>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
+    <h3 fxFlex="35">Nro de Oficio</h3>
+    <h3 fxGlex="65">{{ incidence.id }}</h3>
+</div>
+<div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
+    <h3 fxFlex="35">Fecha</h3>
+    <h3 fxGlex="65">{{ incidence.creationDate }}</h3>
+</div>
+<div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
+    <h3 fxFlex="35">Area</h3>
+    <h3 fxGlex="65">{{ incidence.source.description }}</h3>
+</div>
+<div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
+    <h3 fxFlex="35">Tipo incidencia</h3>
+    <h3 fxGlex="65">{{ incidence.source.description }}</h3>
+</div>
+<div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
+    <h3 fxFlex="35">Sub-Tipo</h3>
+    <h3 fxGlex="65">{{ incidence.source.description }}</h3>
+</div>
+<div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
+    <h3 fxFlex="35">Estado asociado</h3>
+    <h3 fxGlex="65">{{ incidence.source.description }}</h3>
+</div>
+<br>
+<div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
+    <h3 fxFlex="35">Descripcion</h3>
+    <h3 fxGlex="65">{{ incidence.description }}</h3>
+</div>
+<br>
+<br>
+<div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="15" style="height: 140px;">
+    <ng-container *ngIf="key == 'valido'">
+        <button mat-raised-button class="red-button" (click)="onValidate(false)" outerLinkActive="list-item-active">
+            Denegar oficio
+        </button>
+        <button mat-raised-button class="light-button" (click)="onConfirm(true)" outerLinkActive="list-item-active">
+            Continuar
+        </button>
+    </ng-container>
+    <ng-container *ngIf="key == 'flujo_adm'">
+        <button mat-raised-button class="green-button" (click)="onValidate('derivar')"  outerLinkActive="list-item-active">
+            Derivar oficio
+        </button>
+        <button mat-raised-button (click)="onValidate('crear')" class="orange-button"  outerLinkActive="list-item-active">
+            Crear oficio SAP
+        </button>
+        <button mat-raised-button class="light-button" (click)="onValidate('programar')"  outerLinkActive="list-item-active">
+            Programar oficio
+        </button>
+    </ng-container>
+
+    <ng-container *ngIf="key == 'es_valido'">
+        <button mat-raised-button class="red-button" (click)="onValidate(false)" outerLinkActive="list-item-active">
+            Denegar oficio
+        </button>
+        <button mat-raised-button class="light-button" (click)="onConfirm(true)" outerLinkActive="list-item-active">
+            Continuar
+        </button>
+    </ng-container>
+
+    <ng-container *ngIf="key == 'flujo_analista'">
+        <button mat-raised-button class="green-button" (click)="onValidate('derivar')"  outerLinkActive="list-item-active">
+            Derivar oficio
+        </button>
+        <button mat-raised-button (click)="onValidate('reclamar')" class="orange-button"
+            outerLinkActive="list-item-active">
+            Iniciar Reclamo
+        </button>
+        <button mat-raised-button class="light-button" (click)="onValidate('resolver')"
+            outerLinkActive="list-item-active">
+            Resolver Incidente
+        </button>
+    </ng-container>
+</div>

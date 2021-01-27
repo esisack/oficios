@@ -1,0 +1,74 @@
+<div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
+    <h3 fxFlex="60" style="font-weight: 600;">{{ incidence.street.name }}</h3>
+    <h3 fxFlex="40" style="font-weight: 600;">{{ incidence.addressNumber }}</h3>
+</div>
+<div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15" style="font-weight: 600; color: rgb(36, 136, 170);">
+    <ng-container *ngIf="incidence.id == 289637">
+        <h3 fxFlex="65">En Validacion</h3>
+    </ng-container>
+    <ng-container *ngIf="incidence.id == 291278">
+        <h3 fxFlex="65">En Analisis</h3>
+    </ng-container>
+</div>
+<div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="15" style="height: 70px;">
+    <button mat-raised-button class="green-button" outerLinkActive="list-item-active">
+        Derivar oficio
+    </button>
+</div>
+<br>
+<div style="padding: 20px;">
+    <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="15" style="height: 250px;">
+        <mat-form-field>
+            <mat-label>Area</mat-label>
+            <mat-select (selectionChange)="onSelectArea($event.value)">
+                <mat-option> Seleccione area</mat-option>
+                <mat-option *ngFor="let area of areas" [value]="area.id">
+                    {{ area.description }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Origen</mat-label>
+            <mat-select (selectionChange)="onSelectSource($event.value)">
+                <mat-option> Seleccione origen</mat-option>
+                <mat-option *ngFor="let source of sources" [value]="source.id">
+                    {{ source.description }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Tipo</mat-label>
+            <mat-select (selectionChange)="onSelectType($event.value)">
+                <mat-option> Seleccione tipo</mat-option>
+                <mat-option *ngFor="let type of types" [value]="type.id">
+                    {{ type.description }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Sub-Tipo</mat-label>
+            <mat-select (selectionChange)="onSelectType($event.value)">
+                <mat-option> Seleccione tipo</mat-option>
+                <mat-option *ngFor="let type of types" [value]="type.id">
+                    {{ type.description }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <br>
+    <br>
+    <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="15" style="height: 100px;">
+        <button mat-raised-button class="white-button"  outerLinkActive="list-item-active" routerLink="/">
+            Cancelar
+
+        </button>
+        <button mat-raised-button class="light-button" (click)="onConfirm(true)" outerLinkActive="list-item-active">
+            Continuar
+        </button>
+    </div>
+
+    {{ tareaId }}, {{ key }} , {{ object }}
+</div>

@@ -1,4 +1,4 @@
-import { Component, Inject, Input, NgZone, OnInit } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, NgZone, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Incidence } from 'src/app/model/incidence';
@@ -6,6 +6,8 @@ import { IncidenceService } from 'src/app/services/incidence.service';
 import { ConfirmService } from "src/app/services/confirm.service";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogInfoComponent } from '../dialog-info/dialog-info.component';
+import { CategoryValue } from 'src/app/model/category-value';
+import { CategoryValueService } from 'src/app/services/category-value.service';
 
 export interface DialogData {
   animal: string;
@@ -20,35 +22,22 @@ export interface DialogData {
 export class InfoComponent implements OnInit {
 
   @Input() incidence: Incidence
+  @Input() option: string;
+  @Output() valueResponse: EventEmitter<string> = new EventEmitter();
 
-  constructor(
-    public dialog: MatDialog, 
-    private ngZone: NgZone, 
-    private confirmService: ConfirmService
-    ) { }
+  derivar: boolean
+  desechar: boolean
 
-  ngOnInit() {
-    
-  }
+  flow: string
+  action: string
+  of_valido: boolean
+  algo: string
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogInfoComponent, {
-      width: '450px'});
+  constructor( ) { }
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
+  ngOnInit() {}
 
-  onDenied($key){
-    this.confirmService.openConfirmDialog('Esta seguro de denegar el oficio')
-    .afterClosed().subscribe(res =>{
-      if(res){
-        // this.service.deleteEmployee($key);
-        // this.notificationService.warn('! Deleted successfully');
-      }
-    });
-  }
+
 }
 
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Incidence } from 'src/app/model/incidence';
-import { IncidenceService } from 'src/app/services/incidence.service';
+import { BusinessTask } from 'src/app/model/business-task';
+import { BusinessTaskService } from 'src/app/services/business-task.service';
+import { HeaderService } from 'src/app/services/header.service';
 
 @Component({
   selector: 'app-home',
@@ -10,29 +11,37 @@ import { IncidenceService } from 'src/app/services/incidence.service';
 })
 export class HomeComponent implements OnInit {
 
-  incidence: Incidence;
-  incidents: Incidence[] = [];
+  businessTask: BusinessTask
+  businessTasks: BusinessTask[] = []
   total: number;
 
+  currentTask: string
+  key: string
+  object: object
+
   constructor(
-    private service: IncidenceService,
-    private router: Router
-    ) {  }
+    private service: BusinessTaskService,
+    private router: Router,
+    private headerService: HeaderService
+  ) { }
 
   ngOnInit(): void {
-    this.getIncidents()
+    this.headerService.title = "Home"
+    this.getTasks()
   }
 
-
-  getIncidents() {
-    this.service.getIncidents().subscribe(data => {
-      this.incidents = data 
+  getTasks() {
+    this.service.getTasks().subscribe(data => {
+      this.businessTasks = data
+      console.log(data)
     })
   }
 
- onSelect(id: number){
-    this.router.navigate(['/detail', id]);
-  }
+  onSelect(bt: BusinessTask) {
+   this.service.currentTask = bt
+   console.log(this.service.currentTask)
+   this.router.navigate(['/detail', 291278]);
 
+  }
 
 }

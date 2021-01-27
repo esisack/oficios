@@ -11,14 +11,13 @@ import { MapComponent } from './map/map.component';
   declarations: [
     HomeComponent,
     InfoComponent,
-    MapComponent
+    MapComponent,
   ],
   imports: [
     CommonModule,
     MaterialModule,
     GoogleMapsModule,
     MatListModule
-
   ]
 })
 export class HomeModule { }

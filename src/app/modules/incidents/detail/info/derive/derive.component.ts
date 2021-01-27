@@ -1,27 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
-
-import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
-
-
-import { CategoryValueService } from "src/app/services/category-value.service";
-
-import { CategoryValue } from 'src/app/model/category-value';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-
+import { CategoryValue } from 'src/app/model/category-value';
+import { Incidence } from 'src/app/model/incidence';
+import { BusinessTaskService } from 'src/app/services/business-task.service';
+import { CategoryValueService } from 'src/app/services/category-value.service';
 
 @Component({
-  selector: 'app-dialog-info',
-  templateUrl: './dialog-info.component.html',
-  styleUrls: ['./dialog-info.component.scss']
+  selector: 'app-derive',
+  templateUrl: './derive.component.html',
+  styleUrls: ['./derive.component.scss']
 })
-export class DialogInfoComponent implements OnInit {
+export class DeriveComponent implements OnInit {
+
+  @Input() incidence: Incidence
+  @Input() option: string;
+  @Input() key: string
+  @Input() object: Object
+  @Input() tareaId: number
+  @Output() valueResponse: EventEmitter<string> = new EventEmitter();
 
   casesForm: FormGroup;
   areas: CategoryValue[] = []
   sources: CategoryValue[] = []
   types: CategoryValue[] = []
+  subTypes: CategoryValue[] = []
   description: string
   
   selectedArea: string;
@@ -29,17 +31,16 @@ export class DialogInfoComponent implements OnInit {
   selectedType: string;
 
   constructor(
-    public dialogRef: MatDialogRef<DialogInfoComponent>,
-    private service: CategoryValueService
-  ) { }
+    private service: CategoryValueService,
+    private taskService: BusinessTaskService
+    ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getValuesByCategory("AreaIncidencia");
-
   }
 
   onSelectArea(id: number) {
-    console.log('entro a area')
+
     this.selectedArea = `area.id=${id}`
     console.log(this.selectedArea) 
     return  this.getValuesBySource("OrigenIncidencia", id);
@@ -73,9 +74,13 @@ export class DialogInfoComponent implements OnInit {
       this.types = data
     })
   }
+  
+  onConfirm(conf: Object) {
+    if (conf) {
+      this.taskService.getTask(this.tareaId, this.key, conf).subscribe(data => {
+        console.log(data)
+      })
+    }
+  }
 
-
-close() {
-  this.dialogRef.close("Thanks for using me!");
-}
 }

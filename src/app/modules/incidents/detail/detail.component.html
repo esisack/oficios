@@ -1,7 +1,7 @@
 <div class="container">
     <h1>Datos de la incidencia</h1>
     <mat-tab-group mat-align-tabs="end">
-        <mat-tab label="Informacion">
+        <mat-tab label="Informacion">           
             <app-info [incidence]="incidence">
             </app-info>
         </mat-tab>
@@ -9,8 +9,9 @@
             <app-map [incidence]="incidence">
             </app-map>
         </mat-tab>
-        <mat-tab label="Timeline">
+        <mat-tab label="Log de Incidencias">
         </mat-tab>
-    </mat-tab-group>
-    
+        <mat-tab label="Historial">
+        </mat-tab>
+    </mat-tab-group>  
 </div>

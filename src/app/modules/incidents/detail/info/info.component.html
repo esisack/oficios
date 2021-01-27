@@ -1,66 +1,39 @@
 <div fxLayout="row" fxLayoutAlign="none" style="background-color: white;">
-    <div fxFlex="70">
+    <div fxFlex="65">
         <app-images></app-images>
     </div>
-    <div fxLayout="column" fxLayoutAlign="start" fxFlex="30" style="padding: 12px;">
-        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
-            <h3 fxFlex="60" style="font-weight: 600;">{{ incidence.street.name }}</h3>
-            <h3 fxFlex="40" style="font-weight: 600;">{{ incidence.addressNumber }}</h3>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
-            <h3 fxFlex="35">Nro de Oficio</h3>
-            <h3 fxGlex="65">{{ incidence.id }}</h3>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
-            <h3 fxFlex="35">Fecha</h3>
-            <h3 fxGlex="65">{{ incidence.creationDate }}</h3>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
-            <h3 fxFlex="35">Area</h3>
-            <h3 fxGlex="65">{{ incidence.area.description }}</h3>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
-            <h3 fxFlex="35">Tipo incidencia</h3>
-            <h3 fxGlex="65">{{ incidence.source.description }}</h3>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
-            <h3 fxFlex="35">Sub-Tipo</h3>
-            <h3 fxGlex="65">{{ incidence.source.description }}</h3>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
-            <h3 fxFlex="35">Estado asociado</h3>
-            <h3 fxGlex="65">{{ incidence.source.description }}</h3>
-        </div>
-        <br>
-        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15">
-            <h3 fxFlex="35">Descripcion</h3>
-            <h3 fxGlex="65">{{ incidence.description }}</h3>
-        </div>
-        <br>
-        <div fxLayout="column" fxLayoutAlign="end none" fxLayoutGap="15">
-            <ng-container *ngIf="incidence.id == 585">
-                <button mat-raised-button style="background-color: red; color: white;"
-                    fxFlex="70" (click)="onDenied()">
-                    Denegar oficio
-                    <mat-icon>block</mat-icon>
-                </button>
-            </ng-container>
-
-            <ng-container *ngIf="incidence.id == 585">
-                <button mat-raised-button (click)="openDialog()" style="background-color: green; color: white;"
-                    fxFlex="70">
-                    Derivar oficio
-                    <mat-icon>send</mat-icon>
-                </button>
-            </ng-container>
-
-            <ng-container *ngIf="incidence.id == 585">
-                <button mat-raised-button [routerLink]="'/control-grid'" style="background-color: orange; color: white;"
-                    fxFlex="70">
-                    Cruzar informacion
-                    <mat-icon>sync</mat-icon>
-                </button>
-            </ng-container>
+    <div fxLayout="column" fxLayoutAlign="start" fxFlex="35" style="padding: 12px; ">
+        <div [ngSwitch]="option">
+            <ng-template [ngSwitchCase]="'derive'">
+                <app-derive 
+                    [option]="option" 
+                    [incidence]="incidence" 
+                    [tareaId]="tareaId"
+                    [key]="key"
+                    [object]="object"
+                    (valueResponse)=" option = $event">
+                </app-derive>
+            </ng-template>
+            <ng-template [ngSwitchCase]="'confirm'">
+                <app-confirm-info 
+                    [option]="option" 
+                    [incidence]="incidence" 
+                    [tareaId]="tareaId"
+                    [key]="key"
+                    [object]="object"
+                    (valueResponse)=" option = $event">
+                </app-confirm-info>
+            </ng-template>
+            <ng-template ngSwitchDefault>
+                <app-view-info 
+                    [option]="option" 
+                    [incidence]="incidence" 
+                    (valueResponse)="option = $event" 
+                    (valueTarea)="tareaId = $event"
+                    (valueKey)="key = $event"
+                    (valueObject)="object = $event">
+                </app-view-info>
+            </ng-template>
         </div>
     </div>
 </div>

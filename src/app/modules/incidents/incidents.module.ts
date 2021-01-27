@@ -16,7 +16,11 @@ import { ControlComponent } from './control/control.component';
 import { AgmCoreModule } from '@agm/core';
 import { ControlGridComponent } from './control-grid/control-grid.component';
 import { DialogInfoComponent } from './detail/dialog-info/dialog-info.component';
+import { ViewInfoComponent } from './detail/info/view-info/view-info.component';
 
+import { ConfirmInfoComponent } from './detail/info/confirm-info/confirm-info.component';
+import { DeriveComponent } from './detail/info/derive/derive.component';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 @NgModule({
   declarations: [
@@ -30,8 +34,9 @@ import { DialogInfoComponent } from './detail/dialog-info/dialog-info.component'
     ControlComponent,
     ControlGridComponent,
     DialogInfoComponent,
-
-
+    ViewInfoComponent,
+    ConfirmInfoComponent,
+    DeriveComponent,
   ],
   imports: [
     CommonModule,
@@ -40,6 +45,7 @@ import { DialogInfoComponent } from './detail/dialog-info/dialog-info.component'
     GoogleMapsModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxGalleryModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA0VCSHoqA8zAK-cCuj7DJt2uIxp6X2jr8'
     }),

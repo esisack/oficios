@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { HeaderService } from "../../../../app/services/header.service";
 
 @Component({
   selector: 'app-header',
@@ -9,9 +10,12 @@ export class HeaderComponent implements OnInit {
 
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  public title: string = "Home"
 
-  ngOnInit(): void { }
+  constructor(private service: HeaderService) { }
+
+  ngOnInit(): void {
+   }
 
   toggleSideBar() {
     this.toggleSideBarForMe.emit();

@@ -1,7 +1,6 @@
-<h1>Busquedas</h1>
 <form [formGroup]="casesForm" (ngSubmit)="onSubmit()" class="example-form" style="text-align: center;">
 
-    <mat-card>
+    <mat-card class="mat-elevation-z8" >
         <mat-card-content>
             <br>
             <div fxLayout="row" fxLayoutAlign="space-around center">
@@ -92,11 +91,11 @@
         <mat-divider></mat-divider>
         <mat-card-actions align="end">
             <br>
-            <button mat-stroked-button color="primary" fxFlex="20">
+            <button mat-raised-button class="white-button" fxFlex="20">
                 <span> Limpiar  </span>
                 <mat-icon>delete</mat-icon>
             </button>
-            <button mat-raised-button color="primary" fxFlex="20" (click)="onClick($event)">
+            <button mat-raised-button class="light-button" fxFlex="20" (click)="onClick($event)">
                 <span> Filtrar   </span>
                 <mat-icon>filter_alt</mat-icon>
             </button>
