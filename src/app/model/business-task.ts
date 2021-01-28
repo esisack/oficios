@@ -11,5 +11,6 @@ export class BusinessTask {
     activationTime: Date;
     containerId: string;
     processId: string;
+    processInstanceId: number;
     processVariables: Map<string, object>
 }

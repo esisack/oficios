@@ -26,9 +26,12 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.service.getAll()
-    //   .then(paises =>  this.paises = paises )
-    //   .catch(error => console.log(error))
+    console.log("entro por mapa")
+    console.log(this.incidence)
+    console.log(this.incidence.sideWalk)
+    console.log(this.incidence.sideWalk.centroide)
+    this.incidence.sideWalk.centroide.cordinates[0]
+
   }
 
   getCurrentPosition() {

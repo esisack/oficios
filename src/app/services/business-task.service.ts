@@ -26,4 +26,8 @@ export class BusinessTaskService {
     return this.http.get<BusinessTask>(`${this.baseUrl}/businessTasks/${taskId}`);
   }
 
+  getProcessVariables(piId: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/variables/${piId}`)
+  }
+
 }

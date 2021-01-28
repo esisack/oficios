@@ -38,10 +38,11 @@ export class HomeComponent implements OnInit {
   }
 
   onSelect(bt: BusinessTask) {
-   this.service.currentTask = bt
-   console.log(this.service.currentTask)
-   this.router.navigate(['/detail', 291278]);
-
+    this.service.currentTask = bt
+    this.service.getProcessVariables(bt.processInstanceId).subscribe(data => {
+      let id = data.idwu
+      this.router.navigate(['/detail', id])
+    })
   }
 
 }

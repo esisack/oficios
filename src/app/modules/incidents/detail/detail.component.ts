@@ -17,12 +17,12 @@ export class DetailComponent implements OnInit {
     private route: ActivatedRoute,
     private service: IncidenceService
   ) {
-    let id = this.route.snapshot.params['id'];
-    this.getIncidence(id)
+ 
   }
 
   ngOnInit() {
-
+    let id = this.route.snapshot.params['id'];
+    this.getIncidence(id)
   }
 
   getIncidence(id: number) {
