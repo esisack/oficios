@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class DefaultComponent implements OnInit {
 
   userid: number;
-  sideBarOpen = true;
+  sideBarOpen = true
   photoUrl: string;
   name: string;
 
