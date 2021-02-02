@@ -21,6 +21,7 @@ import { ViewInfoComponent } from './detail/info/view-info/view-info.component';
 import { ConfirmInfoComponent } from './detail/info/confirm-info/confirm-info.component';
 import { DeriveComponent } from './detail/info/derive/derive.component';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { LogsComponent } from './detail/logs/logs.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
     ViewInfoComponent,
     ConfirmInfoComponent,
     DeriveComponent,
+    LogsComponent,
   ],
   imports: [
     CommonModule,

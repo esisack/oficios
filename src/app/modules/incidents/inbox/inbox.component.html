@@ -1,15 +1,14 @@
 <div class="container">
+    <h1>Consultas</h1>
     <app-search 
         [search]="search" 
-        (eventChange)="onChange($event)"
+        (eventChange)="onChange($event)" 
         (searchChange)="search = $event">
     </app-search>
-</div>
 <br>
-<div class="container">
     <app-list 
         [search]="search" 
-        [event]="event"
+        [event]="event" 
         (searchChange)="search = $event">
     </app-list>
 </div>

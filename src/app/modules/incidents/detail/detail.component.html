@@ -1,6 +1,7 @@
 <div class="container">
-    <mat-tab-group mat-align-tabs="end">
-        <mat-tab label="Informacion">           
+    <h1>Datos de incidencia</h1>
+    <mat-tab-group mat-align-tabs="end" >
+        <mat-tab label="Informacion" >           
             <app-info [incidence]="incidence">
             </app-info>
         </mat-tab>
@@ -9,6 +10,7 @@
             </app-map>
         </mat-tab>
         <mat-tab label="Log de Incidencias">
+            <app-logs></app-logs>
         </mat-tab>
         <mat-tab label="Historial">
         </mat-tab>

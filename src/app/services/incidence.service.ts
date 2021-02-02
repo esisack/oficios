@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 import { Incidence } from "../model/incidence";
+import { ActivityLog } from "../model/activity-log";
 
 @Injectable({
   providedIn: 'root'
@@ -26,4 +27,7 @@ export class IncidenceService {
     return this.http.get<Incidence[]>(`${this.baseUrl}/incidents/search${search}`);
   }
  
+  getActivities(id: number): Observable<ActivityLog[]> {
+    return this.http.get<ActivityLog[]>(`${this.baseUrl}/activities/${id}`);
+  }
 }

@@ -1,0 +1,33 @@
+.container {
+    margin: 5%;
+}
+h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: rgb(36, 136, 170);
+}
+
+table {
+    width: 100%;
+  }
+
+.mat-column-type {
+  flex: 0 0 30%;
+}
+
+.mat-column-street {
+    flex: 0 0 40%;
+}
+
+.mat-row:nth-child(even){
+  background-color:white;
+  }
+
+.mat-row:nth-child(odd){
+  background-color:whitesmoke;
+  }
+
+
+.mat-header-cell {
+  font-weight: 600;
+}

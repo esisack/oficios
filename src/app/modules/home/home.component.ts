@@ -41,6 +41,7 @@ export class HomeComponent implements OnInit {
     this.service.currentTask = bt
     this.service.getProcessVariables(bt.processInstanceId).subscribe(data => {
       let id = data.idwu
+      id = 289637
       this.router.navigate(['/detail', id])
     })
   }

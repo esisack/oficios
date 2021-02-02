@@ -1,7 +1,7 @@
 <div class="container">
     <h1>Home</h1>
     <h2 style="font-weight: bold;">Actividades Pendientes</h2>
-    <mat-card *ngFor="let bt of businessTasks.slice(0,10);" style="padding: 25px; margin-bottom: 20px; max-height: 70px;"
+    <mat-card *ngFor="let act of activities.slice(0,10);" style="padding: 25px; margin-bottom: 20px; max-height: 70px;"
         class="mat-elevation-z8">
 
         <div fxLayout="row" fxLayoutAlign="space-between" fxLayoutGap="15" style="font-weight: 600;">
@@ -9,11 +9,11 @@
                 <div style="border-radius: 50%; width: 15px; height: 15px; background-color: red; margin-right: 10px;">
                 </div>
                 <div style="height: 30%; ">
-                    <h3 style="font-weight: 600;"> {{ bt.id }} - {{ bt.name }} </h3>
+                    <h3 style="font-weight: 600;"> {{ act }} - {{ act }} </h3>
                     <div style="display: flex; flex-direction: row; justify-content: space-between;">
 
                         <h3>Oficio</h3>
-                        <h3> -- Estado -- {{ bt.status}} </h3>
+                        <h3> -- Estado -- {{ act}} </h3>
                     </div>
                 </div>
             </div>

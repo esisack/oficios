@@ -1,6 +1,8 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Incidence } from 'src/app/model/incidence';
 
+
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -10,6 +12,23 @@ export class MapComponent implements OnInit {
 
   @Input() incidence: Incidence
 
+  polygons = [
+    [
+    { lat: 10, lng: 20 },
+    { lat: 10, lng: 30 },
+    { lat: 20, lng: 30 },
+    { lat: 20, lng: 20 },
+    { lat: 10, lng: 20 }
+    ],
+    [
+    { lat: 0, lng: 10 },
+    { lat: 0, lng: 20 },
+    { lat: 10, lng: 20 },
+    { lat: 10, lng: 10 },
+    { lat: 0, lng: 10 }
+    ]
+    ]
+  
   lat: number
   lng: number
   zoom: number
@@ -19,8 +38,8 @@ export class MapComponent implements OnInit {
 
   constructor() {
     console.log(this.incidence)
-    this.lat = -34.618473
-    this.lng = -58.366545
+    this.lat = -34.5959875
+    this.lng = -58.383372
     this.zoom = 16
     this.mapTypeId = 'hybrid'
   }
@@ -42,4 +61,5 @@ export class MapComponent implements OnInit {
       this.located = true
     })
   }
+
 }
